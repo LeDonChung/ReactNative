@@ -38,17 +38,27 @@ const poll = {
     answers: new Array(4).fill(0),
     registerNewAnswer() {
         // Task 1.1
-        const answer = Number(
+        const answer =
             prompt(
                 `${this.question}\n${this.options.join("\n")}\n(Write option number)`
             )
-        );
         if (answer >= 0 && answer <= 3) {
             this.answers[answer]++;
         }
-        this.displayResults();
-        this.displayResults("string");
+
+        this.displayResults()
     },
+    displayResults(type = 'array') {
+        if (type === 'array') {
+            console.log(this.answers);
+        } else if (type === 'string') {
+            console.log(`Poll results are ${this.answers.join(', ')}.`)
+        }
+    }
 };
 
-poll.registerNewAnswer()
+const button = document.querySelector(".poll");
+
+button.addEventListener("click", () => {
+    poll.registerNewAnswer()
+})
