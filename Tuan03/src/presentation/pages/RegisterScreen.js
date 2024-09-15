@@ -73,7 +73,7 @@ export const RegisterScreen = () => {
                     <View style={{ flex: 2 }}>
                         <View style={{ flex: 1, justifyContent: 'center' }} >
                             <TouchableOpacity style={{ overflow: 'hidden', backgroundColor: '#c34e3b', paddingHorizontal: 15, paddingVertical: 10, borderRadius: 5, marginTop: 10 }} onPress={() => { }}>
-                                <Text style={{ fontSize: 16, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center', color: '#fff' }}> REGISTER </Text>
+                                <Text style={{ fontSize: 16, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center', color: '#fff' }} onPress={() => navigation.navigate('verificationCode')}> REGISTER </Text>
                             </TouchableOpacity>
                         </View>
                         <View>

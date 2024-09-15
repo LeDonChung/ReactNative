@@ -17,10 +17,10 @@ export const AppNavigation = () => {
                     <Stack.Screen name="login" component={LoginScreen} />
                     <Stack.Screen name="forgetPassword" component={ForgetPasswordScreen} />
                     <Stack.Screen name="register" component={RegisterScreen} />
-                    <Stack.Screen name="verificationCoden" component={VerificationCodeScreen} />
+                    <Stack.Screen name="verificationCode" component={VerificationCodeScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
 
-        </>
+        </> 
     )
 }

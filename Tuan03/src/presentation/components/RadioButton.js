@@ -3,25 +3,28 @@ import { View } from "react-native"
 
 export const RadioButton = (props) => {
     return (
-        <View style={[{
-            height: 24,
-            width: 24,
-            borderRadius: 12,
-            borderWidth: 2,
-            borderColor: '#000',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }, props.style]}>
-            {
-              props.selected ?
-                <View style={{
-                  height: 12,
-                  width: 12,
-                  borderRadius: 6,
-                  backgroundColor: '#000',
-                }}/>
-                : null
-            }
-          </View>
+        <View key={props.lable}>
+              {checked == key ? (
+                <TouchableOpacity style={styles.btn}>
+                  <Image
+                    style={styles.img}
+                    source={require('../images/radio_Checked.jpg')}
+                  />
+                  <Text>{props.lable}</Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  onPress={() => {
+                    props.setChecked(key);
+                  }}
+                  style={styles.btn}>
+                  <Image
+                    style={styles.img}
+                    source={require('../images/radio_Unchecked.png')}
+                  />
+                  <Text>{props.gender}</Text>
+                </TouchableOpacity>
+              )}
+            </View>
     )
 }
