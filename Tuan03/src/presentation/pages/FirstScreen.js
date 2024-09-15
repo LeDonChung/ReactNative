@@ -1,60 +1,53 @@
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { useNavigation } from "@react-navigation/native"
+import React from 'react';
+import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 export const FirstScreen = () => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
     return (
-        <>
-            <View style={styles.container}>
-                <Image style={styles.image} source={require('../../../assets/eclipse.png')} />
-                <Text style={[styles.textStyle, {fontWeight: '700', fontSize: 22, marginVertical: 75}]}>GROW {'\n'} YOUR BUSINESS</Text>
-                <Text style={[styles.textStyle, {fontWeight: '700', fontSize: 15}]}>We will help you to grow your business using online server</Text>
-                <View style={[styles.btnGroup, {marginTop: 75}]}>
-                    <TouchableOpacity style={{borderRadius: 10, overflow: "hidden"}}>
-                        <Text style={styles.button}>LOGIN</Text>
+        <View
+            style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignContent: 'center',
+                backgroundColor: '#00CCF9'
+            }}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['#C7F4F6', '#D1F4F6', '#E5F4F5', '#37D6F8', '#00CCF9']}
+                style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    height: '130%'
+                }}
+            />
+            <View style={{ flex: 1, padding: 20 }}>
+                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+                    <Image source={require('../../../assets/eclipse8.png')} />
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 20, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center' }}> GROW {'\n'} YOUR BUSINESS </Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 15, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center' }}> We will help you to grow your business using
+                        online server </Text>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+                    <TouchableOpacity style={{ overflow: 'hidden', backgroundColor: '#E3C000', paddingHorizontal: 15, paddingVertical: 10, borderRadius: 5 }} onPress={() => navigation.navigate('login')}>
+                        <Text style={{ fontSize: 15, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center' }}> LOGIN </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{borderRadius: 10, overflow: "hidden"}}>
-                        <Text style={styles.button}>SIGN UP</Text>
+                    <TouchableOpacity style={{ overflow: 'hidden', backgroundColor: '#E3C000', paddingHorizontal: 15, paddingVertical: 10, borderRadius: 10 }} onPress={() => navigation.navigate('register')}>
+                        <Text style={{ fontSize: 15, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center' }}> SIGN UP </Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={{marginTop: 30}}>
-                    <Text onPress={() => navigation.navigate('forgetPassword')} style={[styles.textStyle, {fontWeight: '700', fontSize: 20}]}>HOW WE WORK?</Text>
-                </TouchableOpacity>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 15, fontFamily: 'Roboto', fontWeight: '700', textAlign: 'center' }}> HOW TO WORK
+                    </Text>
+                </View>
             </View>
-        </>
-    )
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        backgroundColor: '#00CCF9'
-    },
-    textStyle: {
-        color: '#000',
-        fontFamily: 'Roboto',
-        textAlign: 'center' 
-    },
-    btnGroup: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '100%',
-        paddingHorizontal: 20
-    },
-    button: {
-        backgroundColor: '#E3C000',
-        color: '#000',
-        fontFamily: 'Roboto',
-        textAlign: 'center',
-        fontSize: 20,
-        fontWeight: '700',
-        padding: 10, 
-    },
-    image: {
-        width: 140,
-        height: 140
-    }
-
-})
+        </View>
+    );
+};
