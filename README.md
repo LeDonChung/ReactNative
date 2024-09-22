@@ -2,20 +2,16 @@
 # 👋 Hi there!
 
 Tổng hợp bài tập của môn ReactNative tại IUH
-## Installation
-
-Clone project
-
-```bash
-  git clone https://github.com/LeDonChung/ReactNative.git
-```
 
 
+## Tài liệu
 
-
-
-    
-## Run Locally
+- [Tuần 01](https://github.com/LeDonChung/ReactNative/tree/main/Tuan01)
+- [Tuần 02](https://github.com/LeDonChung/ReactNative/tree/main/Tuan02)
+- [Tuần 03](https://github.com/LeDonChung/ReactNative/tree/main/Tuan03)
+- [Tuần 04](https://github.com/LeDonChung/ReactNative/tree/main/Tuan04)
+  
+## Cài đặt
 
 Clone the project
 
@@ -43,7 +39,7 @@ Start app
 
 
 
-## Command
+## Một số lệnh cơ bản cần nhớ
 
 Create React App with Expo
 
@@ -52,7 +48,7 @@ Create React App with Expo
 ```
 
 
-## Authors
+## Tác giả
 
 - [@LeDonChung](https://github.com/LeDonChung)
 
