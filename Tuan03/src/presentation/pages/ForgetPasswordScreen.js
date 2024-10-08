@@ -13,7 +13,7 @@ export const ForgetPasswordScreen = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignContent: 'center',
-                backgroundColor: '#00CCF9'
+                backgroundColor: '#00CCF9',
             }}>
             <LinearGradient
                 // Background Linear Gradient

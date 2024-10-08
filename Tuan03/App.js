@@ -11,5 +11,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  
+  tyoe: {
+    margin
+  }
 });
