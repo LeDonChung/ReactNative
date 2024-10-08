@@ -28,7 +28,7 @@ export const Screen_03 = ({ navigation, route }) => {
                 ToastAndroid.show("Add job success", ToastAndroid.SHORT);
                 navigation.navigate({
                     name: 'screen2',
-                    params: { action: true },
+                    params: { action: 'update success' },
                     merge: true,
                 });
             })
@@ -38,7 +38,7 @@ export const Screen_03 = ({ navigation, route }) => {
                 ToastAndroid.show("Update job success", ToastAndroid.SHORT);
                 navigation.navigate({
                     name: 'screen2',
-                    params: { action: true },
+                    params: { action: 'add success' },
                     merge: true,
                 });
             })
