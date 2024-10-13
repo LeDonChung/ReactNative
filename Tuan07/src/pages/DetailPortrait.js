@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import { FlatList, Image, StyleSheet, TouchableHighlight } from "react-native"
 import { Text, TextInput, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -6,9 +6,21 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import IconF from "react-native-vector-icons/Feather"
 import IconAS from "react-native-vector-icons/AntDesign"
 import { TouchableOpacity } from "react-native"
+
+const countReducer = (state, action) => {
+    switch (action.type) {
+        case 'increment':
+            return { count: state.count < 10 ? state.count + 1: state.count }
+        case 'decrement':
+            return { count: state.count > 1 ? state.count - 1: state.count }
+        default:
+            return state
+    }
+}
+
 export const DetailPortraitScreen = ({ route, navigation }) => {
     const { data } = route.params
-    console.log(data)
+    const [state, dispatch] = useReducer(countReducer, { count: 1 })
     return (
         <ScrollView
             showsVerticalScrollIndicator={false}
@@ -35,11 +47,11 @@ export const DetailPortraitScreen = ({ route, navigation }) => {
                             </Text>
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <TouchableOpacity style={{ padding: 5, backgroundColor: '#f1b000', borderRadius: 10 }}>
+                            <TouchableOpacity style={{ padding: 5, backgroundColor: '#f1b000', borderRadius: 10 }} onPress={() => dispatch({type: 'decrement'})}>
                                 <IconAS name="minus" size={24} color={"#fff"} />
                             </TouchableOpacity>
-                            <Text style={[styles.textNomal, { fontWeight: 'bold', color: '#000', textAlign: 'center', marginHorizontal: 10, fontSize: 17 }]}>1</Text>
-                            <TouchableOpacity style={{ padding: 5, backgroundColor: '#f1b000', borderRadius: 10 }}>
+                            <Text style={[styles.textNomal, { fontWeight: 'bold', color: '#000', textAlign: 'center', marginHorizontal: 10, fontSize: 17 }]}>{state.count}</Text>
+                            <TouchableOpacity style={{ padding: 5, backgroundColor: '#f1b000', borderRadius: 10 }} onPress={() => dispatch({type: 'increment'})}>
                                 <IconAS name="plus" size={24} color={"#fff"} />
                             </TouchableOpacity>
                         </View>
