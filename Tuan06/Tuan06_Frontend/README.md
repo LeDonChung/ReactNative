@@ -10,7 +10,7 @@ Clone project
 
 ```bash
   git clone https://github.com/LeDonChung/ReactNative.git
-  cd Tuan05
+  cd Tuan06
 ```
 
 Start project with npm
