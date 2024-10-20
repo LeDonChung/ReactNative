@@ -7,14 +7,15 @@ import IconA from 'react-native-vector-icons/AntDesign';
 import { ItemTodo } from "../components/TodoItem";
 import axios from "axios";
 import useApi from "../hook/useApi";
+import { useAuth } from "../hook/useAuth";
 export const Screen_02 = ({ route, navigation }) => {
-    const { username } = route.params;
     const [search, setSearch] = useState("");
 
     const {data, updateData, fetchData, setData} = useApi("https://6457b5721a4c152cf98861de.mockapi.io/api/ck/todos");
     /**
      * Khi search thay đổi thì filter ra những item có title chứa search
      */
+    const { user } = useAuth();
     useEffect(() => {
         console.log("search", search)
         if (search.trim() === "") {
@@ -58,7 +59,7 @@ export const Screen_02 = ({ route, navigation }) => {
                     <ItemTodo
                         onCompleted={onUpdateCompleted}
                         props={item}
-                        onUpdate={() => navigation.navigate("screen3", { username: username, action: 'update', itemUpdate: item })} />
+                        onUpdate={() => navigation.navigate("screen3", { action: 'update', itemUpdate: item })} />
                 }
                 keyExtractor={(item) => item.id}
                 ListHeaderComponent={(
@@ -76,7 +77,7 @@ export const Screen_02 = ({ route, navigation }) => {
                                         color: '#000',
                                         fontWeight: 'bold'
 
-                                    }}>Hi, {username}</Text>
+                                    }}>Hi, {user}</Text>
                                     <Text style={{
                                         fontSize: 16,
                                         textAlign: 'center',
@@ -108,10 +109,10 @@ export const Screen_02 = ({ route, navigation }) => {
                         </View>
 
                     </View>
-                )}
+                )} 
                 ListFooterComponent={(
                     <View style={{ flex: 0.5, marginVertical: 20 }}>
-                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => { navigation.navigate("screen3", { username: username, action: 'add' }) }}>
+                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => { navigation.navigate("screen3", { action: 'add' }) }}>
                             <Image source={require('./../../assets/icon-add.png')} />
                         </TouchableOpacity>
                     </View>

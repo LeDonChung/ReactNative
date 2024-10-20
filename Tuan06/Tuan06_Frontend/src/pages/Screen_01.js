@@ -5,8 +5,10 @@ import IconF from 'react-native-vector-icons/Fontisto';
 import { Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native";
 import IconA from 'react-native-vector-icons/AntDesign';
+import { useAuth } from "../hook/useAuth";
 export const Screen_01 = ({ navigation }) => {
     const [name, setName] = useState('chung')
+    const {setUser} = useAuth();
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 4, padding: 30 }}>
@@ -30,7 +32,7 @@ export const Screen_01 = ({ navigation }) => {
                         <IconF size={24} name="email" />
                         <TextInput
                             value={name}
-                            onChange={setName}
+                            onChangeText={setName}
                             placeholder="Enter your name"
                             style={{
                                 fontSize: 20,
@@ -44,9 +46,7 @@ export const Screen_01 = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={{ flex: 1, alignItems: 'center' }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('screen2', {
-                        username: name,
-                    })} style={{ flexDirection: 'row', backgroundColor: '#00BDD6', borderRadius: 20, width: 200, alignItems: 'center', justifyContent: 'center' }}>
+                    <TouchableOpacity onPress={() => {setUser(name); navigation.navigate('screen2'); }} style={{ flexDirection: 'row', backgroundColor: '#00BDD6', borderRadius: 20, width: 200, alignItems: 'center', justifyContent: 'center' }}>
                         <Text
                             style={{
                                 fontSize: 20,

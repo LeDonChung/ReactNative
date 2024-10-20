@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { Alert, Dimensions, Image, TextInput, ToastAndroid } from "react-native"
 import { TouchableOpacity } from "react-native";
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, Text, View } from "react-native" 
 import { SafeAreaView } from "react-native-safe-area-context"
 import IconA from 'react-native-vector-icons/AntDesign';
 import useApi from "../hook/useApi";
+import { useAuth } from "../hook/useAuth";
 export const Screen_03 = ({ navigation, route }) => {
-    const { username, action, itemUpdate } = route.params;
+    const { action, itemUpdate } = route.params;
     const [job, setJob] = useState(itemUpdate?.title || '');
     const { updateData, addData } = useApi("https://6457b5721a4c152cf98861de.mockapi.io/api/ck/todos");
-
+    const { user } = useAuth();
     const finish = async () => {
         if (job === '') {
             Alert.alert('Error', 'Please input your job')
@@ -28,17 +29,16 @@ export const Screen_03 = ({ navigation, route }) => {
                 ToastAndroid.show("Add job success", ToastAndroid.SHORT);
                 navigation.navigate({
                     name: 'screen2',
-                    params: { action: 'update success' },
+                    params: { action: `Add job ${job} success` },
                     merge: true,
                 });
             })
         } else {
             console.log(body)
             response = await updateData(itemUpdate?.id, body).then((res) => {
-                ToastAndroid.show("Update job success", ToastAndroid.SHORT);
                 navigation.navigate({
                     name: 'screen2',
-                    params: { action: 'add success' },
+                    params: { action: `Update job ${job} with id ${itemUpdate.id}` },
                     merge: true,
                 });
             })
@@ -99,7 +99,7 @@ export const Screen_03 = ({ navigation, route }) => {
                                         color: '#000',
                                         fontWeight: 'bold'
 
-                                    }}>Hi, {username}</Text>
+                                    }}>Hi, {user}</Text>
                                     <Text style={{
                                         fontSize: 16,
                                         textAlign: 'center',
