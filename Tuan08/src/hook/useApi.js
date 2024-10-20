@@ -26,5 +26,14 @@ export const useApi = ( url ) => {
             setError(error)
         }
     }
-    return {fetchData, findByTypeId, setData, data}
+
+    const setLikeProduct = async (id, status) => {
+        try {
+            const response = await axios.put(`${url}/${id}`, {like: status});
+            console.log(response)
+        } catch (error) {
+            setError(error)
+        }
+    }
+    return {fetchData, findByTypeId, setData, data, setLikeProduct}
 }
