@@ -38,6 +38,15 @@ export const ProductScreen = ({ navigation }) => {
             findByTypeId(typeChoose.id)
         }
     }, [typeChoose])
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+          // Gọi API để lấy dữ liệu
+          fetchData();
+        });
+    
+        return unsubscribe;
+      }, [navigation]);
     return (
         <>
                 <SafeAreaView style={styles.container}>
