@@ -12,6 +12,9 @@ Tổng hợp bài tập của môn ReactNative tại IUH
 - [Tuần 04](https://github.com/LeDonChung/ReactNative/tree/main/Tuan04)
 - [Tuần 05](https://github.com/LeDonChung/ReactNative/tree/main/Tuan05)
 - [Tuần 06](https://github.com/LeDonChung/ReactNative/tree/main/Tuan06)
+- [Tuần 07](https://github.com/LeDonChung/ReactNative/tree/main/Tuan07)
+- [Tuần 08](https://github.com/LeDonChung/ReactNative/tree/main/Tuan08)
+- 
 
 ## Cài đặt
 
